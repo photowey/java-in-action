@@ -1,5 +1,13 @@
 SHELL := /bin/bash
 
+#
+# 为什么用 Makefile (Windows 系统需要下载 make.exe)
+# 1.方便处理挂平台脚本问题
+# 1.1.Windows - *.cmd|*.bat|...
+# 1.2.Linux - *.sh...
+# 2.简化输入 -> 隐藏长命令
+#
+
 # 默认使用 mvn, 如果 MVND_HOME 环境变量存在, 则使用 mvnd
 MVN ?= $(if $(MVND_HOME),mvnd,mvn)
 
@@ -28,6 +36,7 @@ test: clean
 	$(MVN) test
 
 # 部署项目
+# 通常是部署到私服(开源项目可部署到中央仓库)
 deploy: clean
 	@echo "Using $(MVN) to deploy the project..."
 	$(MVN) -DskipTests=true source:jar deploy
