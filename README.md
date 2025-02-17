@@ -34,7 +34,7 @@ https://www.oracle.com/java/technologies/downloads/
 >   - `/xxx/jdk/jdk17`
 >   - …
 > - `MacOS`
->   - ``
+>   - `/Library/Java/JavaVirtualMatchines/jdk-xxx.jdk/Contents/Home`
 
 #### 2.1.`Windows`
 
