@@ -13,26 +13,30 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.github.photowey.java.in.action;
+package io.github.photowey.java.in.action.service;
 
+import io.github.photowey.java.in.action.AbstractLocalTest;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 /**
- * {@code AppTests}.
+ * {@code HelloServiceTest}.
+ * |- {@link HelloService} 测试类
  *
  * @author photowey
  * @version 1.0.0
- * @since 2025/02/16
+ * @since 2025/02/18
  */
 @SpringBootTest
-class AppTests extends AbstractLocalTest {
+class HelloServiceTest extends AbstractLocalTest {
 
-    // @formatter:off
     @Test
-    void contextLoads() { }
-    // @formatter:on
+    void testSayHello() {
+        String hello = this.helloService.sayHello("photowey");
+        Assertions.assertEquals("Hello,photowey", hello);
+
+        String dummy = this.helloService.sayHello("");
+        Assertions.assertEquals("Hello Dummy~", dummy);
+    }
 }
-
-
-

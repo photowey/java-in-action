@@ -15,24 +15,19 @@
  */
 package io.github.photowey.java.in.action;
 
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
+import io.github.photowey.java.in.action.service.HelloService;
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
- * {@code AppTests}.
+ * {@code AbstractLocalTest}.
+ * |- 本地测试公共符类抽象
  *
  * @author photowey
  * @version 1.0.0
- * @since 2025/02/16
+ * @since 2025/02/18
  */
-@SpringBootTest
-class AppTests extends AbstractLocalTest {
+public abstract class AbstractLocalTest {
 
-    // @formatter:off
-    @Test
-    void contextLoads() { }
-    // @formatter:on
+    @Autowired
+    protected HelloService helloService;
 }
-
-
-

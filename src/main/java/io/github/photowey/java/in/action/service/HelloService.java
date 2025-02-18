@@ -13,26 +13,22 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.github.photowey.java.in.action;
-
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
+package io.github.photowey.java.in.action.service;
 
 /**
- * {@code AppTests}.
+ * {@code HelloService}
  *
  * @author photowey
  * @version 1.0.0
- * @since 2025/02/16
+ * @since 2025/02/18
  */
-@SpringBootTest
-class AppTests extends AbstractLocalTest {
+public interface HelloService {
 
-    // @formatter:off
-    @Test
-    void contextLoads() { }
-    // @formatter:on
+    /**
+     * Say hello.
+     *
+     * @param name 人名
+     * @return 问候语
+     */
+    String sayHello(String name);
 }
-
-
-
