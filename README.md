@@ -316,7 +316,9 @@ https://www.jetbrains.com/idea/download/?section=windows
 
 ### 4.1.`Maven` 工程
 
-> 首推采用 `Spring` 的 提供的在线工具生成
+推荐: `Maven in action` 书籍
+
+> 首推采用 `Spring` 提供的在线工具生成
 
 ```http
 https://start.spring.io
@@ -365,7 +367,7 @@ https://start.spring.io
 
 
 
-### 4.2.`Maven` 工程大致结构
+#### 4.1.1.`Maven` 工程大致结构
 
 ```shell
 java-in-action # 工程名
@@ -387,3 +389,10 @@ java-in-action # 工程名
 |- pom.xml
 ```
 
+
+
+### 4.2.`Gradle` 工程
+
+推荐: `Gradle in action` 书籍
+
+> TODO 咱先把 `Maven` 搞懂吧
