@@ -11,7 +11,7 @@ This project helps beginners quickly grasp Java through hands-on examples and de
 
 ## 1.`JDK` 环境搭建
 
-### 1.下载(`Download`)
+### 1.下载
 
 ```http
 https://www.oracle.com/java/technologies/downloads/
@@ -21,7 +21,7 @@ https://www.oracle.com/java/technologies/downloads/
 
 ### 2.平台
 
-> 由于在实际开发过程中可能回使用多版本的 `JDK` 。故对于安装路径，我们可以采用有规律的命名方式:
+> 由于在实际开发过程中可能会使用多版本的 `JDK` 。故对于安装路径，我们可以采用有规律的命名方式:
 >
 > - `windows`
 >   - `D:\xxx\jdk\jdk8`
@@ -54,7 +54,7 @@ https://www.oracle.com/java/technologies/downloads/
 
 # 示例:
 # 
-# 注意: 早期的 JDK 在安装 JDK 后,还需要指定 JRE 目录, 后期的 JDK 8 已经不需要了
+# 注意: 部分 JDK 在安装时需要选择安装的路径安装好之后,还需要指定 JRE 目录进行安装。
 # 假定: 我们将 JDK 8 安装在 D:\software\jdk\jdk8 下
 
 # 对应: .../8/.../11/.../17/.../21/... 等任何版本
@@ -69,7 +69,7 @@ https://www.oracle.com/java/technologies/downloads/
 # 1.添加环境变量 JAVA_HOME=D:\software\jdk\jdk8
 # 添加 PATH -> %JAVA_HOME%\bin
 # ---------------------------------------------------------------- JAVA_HOME
-# 快捷方式
+# 组合键-快捷方式
 # 1.Win + R 组合键
 # 2.输入: sysdm.cpl
 # 3.点击: 高级 - 左上方
@@ -79,7 +79,7 @@ https://www.oracle.com/java/technologies/downloads/
 # 6.1.变量名(N): JAVA_HOME
 # 6.2.变量值(V): D:\software\jdk\jdk8 - 也可以点击左下方的 "浏览目录(D)..." 进行选择
 # ----------------------------------------------------------------  PATH
-# 快捷方式
+# 组合键-快捷方式
 # 1.Win + R 组合键
 # 2.输入: sysdm.cpl
 # 3.点击: 高级 - 左上方
@@ -99,6 +99,42 @@ java version "17.0.5" 2022-10-18 LTS
 Java(TM) SE Runtime Environment (build 17.0.5+9-LTS-191)
 Java HotSpot(TM) 64-Bit Server VM (build 17.0.5+9-LTS-191, mixed mode, sharing)
 ```
+
+
+
+##### `JAVA_HOME` 步骤
+
+- 1.`Win + R` 组合键
+- 2.输入: `sysdm.cpl`
+  - ![win_R](./docs/assets/win_R.png)
+- 3.点击: 高级 - 左上方
+  - ![system_properties](./docs/assets/system_properties.png)
+- 4.点击: 环境变量(N)... - 右下方
+- 5.点击: 新建(W)... - 右下方
+- 6.输入:
+  - 6.1.变量名(N): `JAVA_HOME`
+  - 6.2.变量值(V): `D:\software\jdk\jdk8`
+  - ![java_home](./docs/assets/java_home.png)
+
+
+
+##### `PATH` 步骤
+
+- 1.`Win + R` 组合键
+- 2.输入: `sysdm.cpl`
+- 3.点击: 高级 - 左上方
+- 4.点击: 环境变量(N)... - 右下方
+- 5.系统变量(S) - 下半部分
+- 6.滚动滚轮
+  - 找到 Path 变量
+    - ![system_path](./docs/assets/system_path.png)
+  - 点击: 编辑(I)…
+  - 添加 `JAVA_HOME` 环境变量到系统 `PATH`
+    - ![system_path_java_home](./docs/assets/system_path_java_home.png)
+
+
+##### 验证 `JAVA_HOME` 配置 
+- ![java_version](./docs/assets/java_version.png)
 
 
 
