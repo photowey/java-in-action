@@ -163,6 +163,7 @@ export LD_LIBRARY_PATH=$JNI_LIB:$LD_LIBRARY_PATH
 # |- |- |- /Library/Java/JavaVirtualMachines/jdk-11.0.16.1.jdk/Contents/Home
 
 # JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-11.0.16.1.jdk/Contents/Home
+# export JAVA_HOME
 
 # 2.另一种方式
 # 2.1.不指定版本
