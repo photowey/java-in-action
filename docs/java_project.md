@@ -1,11 +1,8 @@
 # `Java project`
 
+## 1.`Maven` 工程
 
-## 1.工程
-
-### 1.1.`Maven` 工程
-
-推荐: `Maven in action` 书籍
+推荐: `Maven In Action` 书籍
 
 > 首推采用 `Spring` 提供的在线工具生成
 
@@ -17,7 +14,7 @@ https://start.spring.io
 
 
 
-注意: 当没有 `JDK` 17+ 时, 工程下载下来并解压后,咱们可以修改一下 `pom.xml` 中  `parent` 节点的版本号
+注意: 当没有 `JDK` 17+ 时, 将工程下载并解压后,咱们可以修改一下 `pom.xml` 中  `parent` 节点的版本号
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -54,7 +51,7 @@ https://start.spring.io
 
 ```
 
-#### 1.1.1.`Maven` 工程大致结构
+### 1.1.`Maven` 大致结构
 
 ```shell
 java-in-action # 工程名
@@ -66,6 +63,9 @@ java-in-action # 工程名
         |- App.java
         |- ...
     |- resources
+      |- SPI 相关目录
+      |- META-INF
+      	|- ...
       |- 资源文件
   |- test
     |- java
@@ -78,8 +78,8 @@ java-in-action # 工程名
 
 
 
-### 1.2.`Gradle` 工程
+## 2.`Gradle` 工程
 
-推荐: `Gradle in action` 书籍
+推荐: `Gradle In Action` 书籍
 
 > TODO 咱先把 `Maven` 搞懂吧
