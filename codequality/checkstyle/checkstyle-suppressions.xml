@@ -5,6 +5,7 @@
 <suppressions>
     <suppress files="[\\/].*(package-info)\.java" checks="RegexpOnFilename"/>
     <suppress files=".*[\\/]printer([\\/])?.*" checks="OperatorWrap"/>
-    <suppress files=".*[\\/]example([\\/])?.*" checks="Regexp"/>
-    <suppress files=".*[\\/]example([\\/])?.*" checks="UncommentedMain"/>
+    <suppress files=".*[\\/]grammar([\\/])?.*" checks="Regexp"/>
+    <suppress files=".*[\\/]grammar([\\/])?.*" checks="UncommentedMain"/>
+    <suppress files=".*[\\/]grammar([\\/])?.*" checks="LocalVariableName"/>
 </suppressions>

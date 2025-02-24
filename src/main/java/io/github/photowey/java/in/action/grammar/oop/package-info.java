@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 /**
- * {@code io.github.photowey.java.in.action.example}.
- * |- {@code Java} 语言基础示例包
+ * {@code io.github.photowey.java.in.action.example.oop}.
+ * |- 面向对象
  *
  * @author photowey
  * @version 1.0.0
- * @since 2025/02/17
+ * @since 2025/02/16
  */
-package io.github.photowey.java.in.action.example;
+package io.github.photowey.java.in.action.grammar.oop;

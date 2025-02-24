@@ -13,12 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+package io.github.photowey.java.in.action.grammar.basic;
+
 /**
- * {@code io.github.photowey.java.in.action.example.oop}.
- * |- 面向对象
+ * {@code Keywords}.
  *
  * @author photowey
  * @version 1.0.0
  * @since 2025/02/16
  */
-package io.github.photowey.java.in.action.example.oop;
+public class Keywords {
+}

@@ -15,17 +15,17 @@
  */
 package io.github.photowey.java.in.action.core.printer;
 
-import java.net.InetAddress;
-import java.net.UnknownHostException;
-import java.util.Optional;
-import java.util.function.Supplier;
-
 import io.github.photowey.java.in.action.core.thrower.AssertionErrorThrower;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.core.env.ConfigurableEnvironment;
 import org.springframework.util.StringUtils;
+
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+import java.util.Optional;
+import java.util.function.Supplier;
 
 /**
  * {@code AppPrinter}.

@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 /**
- * {@code io.github.photowey.java.in.action.example.designpattern}.
- * |- 设计模式
+ * {@code io.github.photowey.java.in.action.example}.
+ * |- {@code Java} 语言基础示例包
  *
  * @author photowey
  * @version 1.0.0
- * @since 2025/02/16
+ * @since 2025/02/17
  */
-package io.github.photowey.java.in.action.example.designpattern;
+package io.github.photowey.java.in.action.grammar;
