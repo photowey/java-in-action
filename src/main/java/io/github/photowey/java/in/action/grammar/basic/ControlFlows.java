@@ -15,6 +15,10 @@
  */
 package io.github.photowey.java.in.action.grammar.basic;
 
+import java.util.Arrays;
+import java.util.Iterator;
+import java.util.List;
+
 /**
  * {@code ControlFlow}.
  *
@@ -26,6 +30,9 @@ public class ControlFlows {
 
     public static void main(String[] args) {
         onIfCtrl();
+        onSwitchCtrl();
+        onForCtrl();
+        onWhileCtrl();
     }
 
     /**
@@ -59,8 +66,12 @@ public class ControlFlows {
         ifCtrl();
         String resultA = ifElseCtrl1(96);
         String resultB = ifElseCtrl2(88);
+        // 多判断 -> 首推: Happy Path 风格
+        String resultC = ifElseCtrl3(77);
         String resultD = ifNestedCtrl(66);
     }
+
+    // ----------------------------------------------------------------
 
     private static void ifCtrl() {
         if (1 != 2) {
@@ -72,17 +83,15 @@ public class ControlFlows {
     }
 
     private static String ifElseCtrl1(int score) {
-        if (score > 100 || score < 0) {
-            throw new IllegalArgumentException("score must be between 0 and 100");
-        }
+        checkScore(score);
 
-        if (score >= 90 && score <= 100) {
+        if (score >= 90) {
             return "A";
-        } else if (score >= 80 && score <= 89) {
+        } else if (score >= 80) {
             return "B";
-        } else if (score >= 70 && score <= 79) {
+        } else if (score >= 70) {
             return "C";
-        } else if (score >= 60 && score <= 69) {
+        } else if (score >= 60) {
             return "D";
         } else {
             return "E";
@@ -90,17 +99,35 @@ public class ControlFlows {
     }
 
     private static String ifElseCtrl2(int score) {
-        if (score > 100 || score < 0) {
-            throw new IllegalArgumentException("score must be between 0 and 100");
+        checkScore(score);
+
+        if (score >= 90) {
+            return "A";
+        } else if (score >= 80) {
+            return "B";
+        } else if (score >= 70) {
+            return "C";
+        } else if (score >= 60) {
+            return "D";
         }
 
-        if (score >= 90 && score <= 100) {
+        return "E";
+    }
+
+    private static String ifElseCtrl3(int score) {
+        checkScore(score);
+
+        // 采用 Happy Path 风格
+        if (score >= 90) {
             return "A";
-        } else if (score >= 80 && score <= 89) {
+        }
+        if (score >= 80) {
             return "B";
-        } else if (score >= 70 && score <= 79) {
+        }
+        if (score >= 70) {
             return "C";
-        } else if (score >= 60 && score <= 69) {
+        }
+        if (score >= 60) {
             return "D";
         }
 
@@ -108,23 +135,178 @@ public class ControlFlows {
     }
 
     private static String ifNestedCtrl(int score) {
-        if (score > 100 || score < 0) {
-            throw new IllegalArgumentException("score must be between 0 and 100");
-        }
+        checkScore(score);
 
-        if (score >= 90 && score <= 100) {
+        if (score >= 90) {
             if (score >= 95) {
                 return "A++";
             }
             return "A";
-        } else if (score >= 80 && score <= 89) {
+        } else if (score >= 80) {
             return "B";
-        } else if (score >= 70 && score <= 79) {
+        } else if (score >= 70) {
             return "C";
-        } else if (score >= 60 && score <= 69) {
+        } else if (score >= 60) {
             return "D";
         }
 
         return "E";
+    }
+
+    private static void checkScore(int score) {
+        if (score > 100 || score < 0) {
+            throw new IllegalArgumentException("score must be between 0 and 100");
+        }
+    }
+
+    // ----------------------------------------------------------------
+
+    /**
+     * {@code Switch} 流程控制
+     * <pre>
+     *     switch (表达式) {
+     *         case 常量1:
+     *             执行语句 1;
+     *             break;
+     *         case 常量2:
+     *             执行语句 2;
+     *             break;
+     *         case 常量...:
+     *             执行语句 ...;
+     *             break;
+     *         case 常量N:
+     *             执行语句 N;
+     *             break;
+     *         default:
+     *             执行语句 x;
+     *             break;
+     *     }
+     * </pre>
+     * NOTES:
+     * 1.用变量接收的值和下面 case 后面的常量值匹配,匹配上哪个 case 就执行哪个 case 对应的执行语句
+     * |- 如果以上所有 case 都没有匹配上,就走 default 对应的执行 语句n
+     * 2.break 关键字
+     * |- 代表的是结束 switch 语句
+     * 3.匹配的类型
+     * byte | short | int | char | 枚举类型 | String 类型
+     * 4.穿透性
+     * |- 如果没有 break,就会出现 case 的穿透性
+     * |- |- 程序就一直往下穿透执行,直到遇到了 break 或者 switch 代码执行完才停止
+     */
+    private static void onSwitchCtrl() {
+        // 数值类型
+        int status = 1;
+        switch (status) {
+            case 0:
+                System.out.println("status: 0");
+                break;
+            case 1:
+                System.out.println("status: 1");
+                break;
+            case 2:
+                System.out.println("status: 2");
+                break;
+            default:
+                System.out.println("status: default");
+                break;
+        }
+
+        // 字符串类型
+        String color = "RED";
+        switch (color) {
+            case "RED":
+                System.out.println("color: RED");
+                break;
+            case "GREEN":
+                System.out.println("color: GREEN");
+                break;
+            case "BLUE":
+                System.out.println("color: BLUE");
+                break;
+            default:
+                System.out.println("color: default");
+                break;
+        }
+
+        char ch = 'A';
+        switch (ch) {
+            case 'A':
+                System.out.println("char: RED");
+                break;
+            case 'D':
+                System.out.println("char: GREEN");
+                break;
+            case 'C':
+                System.out.println("char: BLUE");
+                break;
+            default:
+                System.out.println("char: default");
+                break;
+        }
+
+        // 枚举类型
+        Color colorEnum = Color.RED;
+        switch (colorEnum) {
+            case RED:
+                System.out.println("color Enum: RED");
+                break;
+            case GREEN:
+                System.out.println("color Enum: GREEN");
+                break;
+            case BLUE:
+                System.out.println("color Enum: BLUE");
+                break;
+            default:
+                System.out.println("color Enum: default");
+                break;
+        }
+    }
+
+    private static void onForCtrl() {
+        // 正向 for-i 循环
+        for (int i = 0; i < 10; i++) {
+            System.out.println("i: " + i);
+        }
+
+        // 反向 for-i 循环
+        for (int i = 10; i >= 0; i--) {
+            System.out.println("i: " + i);
+        }
+
+        List<Integer> list = Arrays.asList(1, 2, 4, 8, 16);
+
+        // 遍历列表
+        for (int i = 0; i < list.size(); i++) {
+            System.out.println("list_i: " + list.get(i));
+        }
+
+        // 增强 for 遍历列表
+        for (Integer i : list) {
+            System.out.println("list_i: " + i);
+        }
+
+        Iterator<Integer> iterator = list.iterator();
+        // 遍历迭代器 1
+        /*for (Integer i : iterator) {
+            System.out.println("list_i: " + i);
+        }*/
+
+        // 遍历迭代器 2
+        for (Iterator<Integer> it = iterator; it.hasNext(); ) {
+            Integer i = it.next();
+            System.out.println("list_i: " + i);
+        }
+    }
+
+    private static void onWhileCtrl() {
+        // TODO 待完善
+    }
+
+    // ----------------------------------------------------------------
+
+    public enum Color {
+        RED,
+        GREEN,
+        BLUE
     }
 }

@@ -40,7 +40,6 @@ public class HelloServiceImpl implements HelloService {
      */
     @Override
     public String sayHello(String name) {
-        // 单行注释
         // 如果: 人名有值 -> 返回: Hello, 人名
         if (StringUtils.hasText(name)) {
             return "Hello," + name;
