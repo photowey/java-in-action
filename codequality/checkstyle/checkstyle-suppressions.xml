@@ -8,4 +8,5 @@
     <suppress files=".*[\\/]grammar([\\/])?.*" checks="Regexp"/>
     <suppress files=".*[\\/]grammar([\\/])?.*" checks="UncommentedMain"/>
     <suppress files=".*[\\/]grammar([\\/])?.*" checks="LocalVariableName"/>
+    <suppress files=".*[\\/]grammar([\\/])?.*" checks="MethodLength"/>
 </suppressions>

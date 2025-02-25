@@ -192,6 +192,11 @@ public class ControlFlows {
      * 4.穿透性
      * |- 如果没有 break,就会出现 case 的穿透性
      * |- |- 程序就一直往下穿透执行,直到遇到了 break 或者 switch 代码执行完才停止
+     * 4.1.case 穿透性特性的使用与避免
+     * |- |- 利用穿透性特点:
+     * |- |- |- 1.多个 case 均执行的是同样的逻辑,则可以利用穿透的特性,只在最后一个 case 写 break 即可
+     * |- |- 避免:
+     * |- |- |- 1.应该尽量为每个 case 均添加 break 语句
      */
     private static void onSwitchCtrl() {
         // 数值类型
@@ -258,6 +263,21 @@ public class ControlFlows {
                 break;
             default:
                 System.out.println("color Enum: default");
+                break;
+        }
+
+        // 穿透
+        switch (status) {
+            case 1:
+            case 2:
+            case 4:
+                System.out.println("status: 1|2|4");
+                break;
+            case 8:
+                System.out.println("status: 8");
+                break;
+            default:
+                System.out.println("status: default");
                 break;
         }
     }
