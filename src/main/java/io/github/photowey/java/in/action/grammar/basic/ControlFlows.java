@@ -18,9 +18,15 @@ package io.github.photowey.java.in.action.grammar.basic;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Scanner;
 
 /**
  * {@code ControlFlow}.
+ * |- 流程控制
+ * |- {@code if}
+ * |- {@code switch}
+ * |- {@code for}
+ * |- {@code while}
  *
  * @author photowey
  * @version 1.0.0
@@ -199,8 +205,25 @@ public class ControlFlows {
      * |- |- |- 1.应该尽量为每个 case 均添加 break 语句
      */
     private static void onSwitchCtrl() {
-        // 数值类型
+        // 数值类型 (byte | short | int | ...)
         int status = 1;
+        numberSwitch(status);
+
+        // 字符串类型
+        stringSwitch();
+
+        // 字符类型
+        charSwitch();
+
+        // 枚举类型
+        enumSwitch();
+
+        // 穿透
+        throughSwitch(status);
+        monthSwitch();
+    }
+
+    private static void numberSwitch(int status) {
         switch (status) {
             case 0:
                 System.out.println("status: 0");
@@ -215,8 +238,9 @@ public class ControlFlows {
                 System.out.println("status: default");
                 break;
         }
+    }
 
-        // 字符串类型
+    private static void stringSwitch() {
         String color = "RED";
         switch (color) {
             case "RED":
@@ -232,7 +256,9 @@ public class ControlFlows {
                 System.out.println("color: default");
                 break;
         }
+    }
 
+    private static void charSwitch() {
         char ch = 'A';
         switch (ch) {
             case 'A':
@@ -248,8 +274,9 @@ public class ControlFlows {
                 System.out.println("char: default");
                 break;
         }
+    }
 
-        // 枚举类型
+    private static void enumSwitch() {
         Color colorEnum = Color.RED;
         switch (colorEnum) {
             case RED:
@@ -265,8 +292,9 @@ public class ControlFlows {
                 System.out.println("color Enum: default");
                 break;
         }
+    }
 
-        // 穿透
+    private static void throughSwitch(int status) {
         switch (status) {
             case 1:
             case 2:
@@ -279,6 +307,38 @@ public class ControlFlows {
             default:
                 System.out.println("status: default");
                 break;
+        }
+    }
+
+    private static void monthSwitch() {
+        Scanner sc = new Scanner(System.in);
+        int month = sc.nextInt();
+        switch (month) {
+            case 12:
+            case 1:
+            case 2:
+                System.out.println("冬季");
+                break;
+
+            case 3:
+            case 4:
+            case 5:
+                System.out.println("春季");
+                break;
+
+            case 6:
+            case 7:
+            case 8:
+                System.out.println("夏季");
+                break;
+
+            case 9:
+            case 10:
+            case 11:
+                System.out.println("秋季");
+                break;
+            default:
+                System.out.println("什么情况,你家有这个月份?");
         }
     }
 
@@ -312,7 +372,7 @@ public class ControlFlows {
         }*/
 
         // 遍历迭代器 2
-        for (Iterator<Integer> it = iterator; it.hasNext(); ) {
+        for (Iterator<Integer> it = iterator; it.hasNext(); /**/) {
             Integer i = it.next();
             System.out.println("list_i: " + i);
         }
