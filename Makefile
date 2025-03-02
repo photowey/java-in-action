@@ -11,7 +11,7 @@ SHELL := /bin/bash
 # 默认使用 mvn, 如果 MVND_HOME 环境变量存在, 则使用 mvnd
 MVN ?= $(if $(MVND_HOME),mvnd,mvn)
 
-.PHONY: clean compile test deploy package tree
+.PHONY: clean compile test deploy package tree check
 
 # 设置默认目标
 .DEFAULT_GOAL := help
@@ -51,6 +51,11 @@ tree:
 	@echo "Using $(MVN) to show dependency tree..."
 	$(MVN) dependency:tree -Dincludes=$(filter-out $@,$(MAKECMDGOALS))
 
+# 代码检查
+check:
+	@echo "Using $(MVN) to check the project..."
+	$(MVN) checkstyle:check
+
 # 帮助信息
 help:
 	@echo "Available targets:"
@@ -60,6 +65,7 @@ help:
 	@echo "  deploy    - Deploy the project"
 	@echo "  package   - Package the project"
 	@echo "  tree      - Show dependency tree (e.g., make tree group:artifact)"
+	@echo "  check     - Check the project"
 	@echo "  help      - Show this help message"
 
 # 处理未知目标

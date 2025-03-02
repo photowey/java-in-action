@@ -12,7 +12,7 @@ https://maven.apache.org/download.cgi
 
 ## 2.配置
 
-> 基本和 `JAVA_HOME` 同理
+> 以 `Windows` 为例,基本和 `JAVA_HOME` 同理
 
 ```shell
 # 1.假定 -> 下载后解压到 D:\software\maven
@@ -58,7 +58,8 @@ OS name: "windows 11", version: "10.0", arch: "amd64", family: "windows"
           xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.2.0 https://maven.apache.org/xsd/settings-1.2.0.xsd">
 
   <!-- ... -->
-    
+  <!-- Linux: 示例: /usr/local/maven/repo/repository -->
+  <!-- MacOS: 同 Linux -->
   <localRepository>D:\software\repo\repository</localRepository>
   
   <!-- ... -->

@@ -9,11 +9,11 @@ This project helps beginners quickly grasp Java through hands-on examples and de
 
 ## 1.`JDK`
 
-[JDK 安装与环境搭建](./docs/java_install.md)
+[JDK 安装](./docs/java_install.md)
 
 ## 2.`Maven`
 
-[Maven 安装与环境搭建](./docs/maven_install.md)
+[Maven 安装](./docs/maven_install.md)
 
 ## 3.编辑器
 
@@ -32,3 +32,7 @@ This project helps beginners quickly grasp Java through hands-on examples and de
 - `Maven` 工程
 - `Gradle` 工程
 - `...`
+
+## 5.语法
+
+[Java 语法](./docs/java_grammar.md)
