@@ -15,15 +15,8 @@
  */
 package io.github.photowey.java.in.action;
 
-import io.github.photowey.java.in.action.core.event.ApplicationStartedLocalEvent;
-import io.github.photowey.java.in.action.core.printer.AppContext;
-import io.github.photowey.java.in.action.core.printer.AppPrinter;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.boot.Banner;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.builder.SpringApplicationBuilder;
-import org.springframework.context.ConfigurableApplicationContext;
-import org.springframework.util.StopWatch;
 
 /**
  * {@code App}.
@@ -38,29 +31,29 @@ import org.springframework.util.StopWatch;
 public class App {
 
     public static void main(String[] args) {
-        StopWatch watch = new StopWatch("setup");
-        watch.start();
+        long love = 520;
+        try {
+            life(love);
+        } catch (Exception e) {
+            handle(args);
+        } finally {
+            love++;
+        }
+    }
 
-        ConfigurableApplicationContext applicationContext = new SpringApplicationBuilder(App.class)
-            .bannerMode(Banner.Mode.CONSOLE)
-            .logStartupInfo(true)
-            .build(args)
-            .run(args);
+    private static void life(long love) {
+        // 生活,总有很多未知和意外~
+        long x = love / 0L;
+        // 也总有,不如人意的地方!
+        throw new UnsupportedOperationException("Unreachable here.");
+    }
 
-        AppPrinter.print(applicationContext, AppContext.swaggerAppContext());
-        watch.stop();
-        publishEvent(applicationContext);
-
-        log.info("Report: java-in-action webapp started, took [{}] ms",
-            watch.getTotalTimeMillis()
-        );
+    private static void handle(String[] args) {
+        // 一起面对~
+        AutoApplication.run(args);
     }
 
     // @formatter:off
     public static void holdOn() { }
     // @formatter:on
-
-    private static void publishEvent(ConfigurableApplicationContext applicationContext) {
-        applicationContext.publishEvent(new ApplicationStartedLocalEvent());
-    }
 }
