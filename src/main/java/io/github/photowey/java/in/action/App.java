@@ -20,7 +20,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
  * {@code App}.
- * |- 应用程序入库类
+ * |- 应用程序入口类
  *
  * @author photowey
  * @version 1.0.0
@@ -50,7 +50,7 @@ public class App {
 
     private static void handle(String[] args) {
         // 一起面对~
-        AutoApplication.run(args);
+        TogetherApplication.run(args);
     }
 
     // @formatter:off

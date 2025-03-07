@@ -15,6 +15,7 @@
  */
 package io.github.photowey.java.in.action.grammar.basic;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.security.SecureRandom;
@@ -33,12 +34,28 @@ import java.util.Random;
  */
 class ControlFlowsTest {
 
+    public enum Color {
+        RED,
+        GREEN,
+        BLUE
+    }
+
+    private Random random;
+
+    @BeforeEach
+    void init() {
+        this.random = new SecureRandom();
+    }
+
     @Test
     void testControlFlows() {
-        tryIf();
-        trySwitch();
-        tryFor();
-        tryWhile();
+        this.tryIf();
+        this.trySwitch();
+
+        this.tryFor();
+
+        this.tryWhile();
+        this.tryDoWhile();
     }
 
     private void tryIf() {
@@ -148,20 +165,20 @@ class ControlFlowsTest {
     private void trySwitch() {
         // 数值类型 (byte | short | int | ...)
         int status = 1;
-        numberSwitch(status);
+        this.numberSwitch(status);
 
         // 字符串类型
-        stringSwitch();
+        this.stringSwitch();
 
         // 字符类型
-        charSwitch();
+        this.charSwitch();
 
         // 枚举类型
-        enumSwitch();
+        this.enumSwitch();
 
         // 穿透
-        throughSwitch(status);
-        monthSwitch();
+        this.throughSwitch(status);
+        this.monthSwitch();
     }
 
     private void numberSwitch(int status) {
@@ -218,7 +235,7 @@ class ControlFlowsTest {
     }
 
     private void enumSwitch() {
-        ControlFlows.Color colorEnum = ControlFlows.Color.RED;
+        Color colorEnum = Color.RED;
         switch (colorEnum) {
             case RED:
                 System.out.println("color Enum: RED");
@@ -252,8 +269,7 @@ class ControlFlowsTest {
     }
 
     private void monthSwitch() {
-        Random random = new SecureRandom();
-        int month = random.nextInt(12);
+        int month = this.random.nextInt(12);
 
         switch (month) {
             case 12:
@@ -286,9 +302,9 @@ class ControlFlowsTest {
 
     private void tryFor() {
         // 1.语法
-        forGrammars();
+        this.forGrammars();
         // 2.案例
-        forExamples();
+        this.forExamples();
     }
 
     private void forGrammars() {
@@ -392,9 +408,9 @@ class ControlFlowsTest {
 
     private void tryWhile() {
         // 1.语法
-        whileGrammars();
+        this.whileGrammars();
         // 2.示例
-        whileExamples();
+        this.whileExamples();
     }
 
     private void whileGrammars() {
@@ -413,11 +429,10 @@ class ControlFlowsTest {
 
         // 2.普通循环
         // 2.1.循环表达式
-        boolean expression = determineWhileConditionExpression();
-        Random random = new SecureRandom();
+        boolean expression = this.determineWhileConditionExpression();
         int count = 0;
         while (expression) {
-            int nexted = random.nextInt(100);
+            int nexted = this.random.nextInt(100);
             if (0 == nexted % 2) {
                 // 2.2.通过 break 关键字跳出循环
                 break;
@@ -450,6 +465,51 @@ class ControlFlowsTest {
         }
 
         System.out.println("while 循环: 删除 128，剩余列表元素:" + list);
+    }
+
+    private void tryDoWhile() {
+        // 1.语法
+        this.doWhileGrammar();
+        // 2.示例
+        this.doWhileExamples();
+    }
+
+    private void doWhileGrammar() {
+        int times = 0;
+        do {
+            System.out.println("times: 当前执行的循环次数: [" + times + "]");
+            times++;
+        }
+        while (times <= 10);
+
+        int retryTimes = 11;
+        do {
+            System.out.println("retryTimes: 当前执行的循环次数: [" + times + "]");
+            retryTimes++;
+        }
+        while (retryTimes <= 10);
+    }
+
+    private void doWhileExamples() {
+        int retryTimes = 0;
+        do {
+            try {
+                asyncCall(retryTimes);
+                break;
+            } catch (Exception ignoted) {
+                // do something.
+            }
+
+            retryTimes++;
+        }
+        while (retryTimes <= 3);
+    }
+
+    private void asyncCall(int retryTimes) {
+        System.out.println("asyncCall: 当前执行的循环次数: [" + retryTimes + "]");
+        if (this.random.nextBoolean()) {
+            throw new RuntimeException("asyncCall failed.");
+        }
     }
 
     private boolean determineWhileConditionExpression() {

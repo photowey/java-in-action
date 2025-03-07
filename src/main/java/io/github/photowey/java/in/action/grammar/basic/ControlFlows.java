@@ -117,19 +117,52 @@ public class ControlFlows {
         // do nothing now.
     }
 
+    /**
+     * {@code for} 循环控制
+     * 1.for-i
+     * <pre>
+     * for (初始化语句; 条件表达式; 迭代语句) {
+     *      // do something.
+     * }
+     * </pre>
+     * 2.foreach
+     * <pre>
+     * for (类型 变量名 : 集合) {
+     *     // do something.
+     * }
+     * </pre>
+     * 3.死循环
+     * <pre>
+     * for (;;) {
+     *     // do something.
+     * }
+     * </pre>
+     */
     private static void forCtrl() {
-
+        // do something.
     }
 
+    /**
+     * {@code while} 循环控制
+     * 1.普通循环
+     * <pre>
+     * while (条件表达式) {
+     *      // 先判断条件
+     *      // |- |- -> 如果条件为 true,则执行循环体 -> 否则结束循环
+     *      // do something.
+     * }
+     * </pre>
+     * 2.直到循环
+     * <pre>
+     * do {
+     *      // 至少执行一次循环体
+     *      // |- 先执行循环体 -> 再判断条件
+     *      // |- |- -> 如果条件为 true,则继续执行循环体 -> 否则结束循环
+     *      // do something.
+     * } while (条件表达式);
+     * </pre>
+     */
     private static void whileCtrl() {
-
-    }
-
-    // ----------------------------------------------------------------
-
-    public enum Color {
-        RED,
-        GREEN,
-        BLUE
+        // do something.
     }
 }

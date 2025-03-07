@@ -32,7 +32,7 @@ import org.springframework.util.StopWatch;
  * @since 2025/03/03
  */
 @Slf4j
-public class AutoApplication {
+public class TogetherApplication {
 
     public static void run(String[] args) {
         StopWatch watch = new StopWatch("setup");
