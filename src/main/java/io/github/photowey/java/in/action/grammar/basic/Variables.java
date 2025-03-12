@@ -15,12 +15,6 @@
  */
 package io.github.photowey.java.in.action.grammar.basic;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import org.springframework.core.annotation.AliasFor;
-
 import java.io.Serializable;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -28,6 +22,11 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 import java.math.BigDecimal;
 import java.util.Arrays;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.springframework.core.annotation.AliasFor;
 
 /**
  * {@code Variables}.
@@ -78,6 +77,29 @@ import java.util.Arrays;
  * 2.5.1.字符串(String) 不是`基本数据类型`是`引用类型`
  * |- |- String 是一个类,在定义的时候可以和基本数据类型 `格式` 一样
  * |- |- |- String x = "Hello world~";
+ * 2.5.2.尽量避免直接通过 float 和 double 类型进行运算
+ * |- 避免出现丢失精度
+ * |- 如有需要需要转化为 BigDecimal 类型进行计算
+ * |- |- BigDecimal amount = new BigDecimal("0.01");
+ * 2.5.3.变量不初始化不能直接使用
+ * 2.5.4.在同一个作用域中(一对大括号 `{ xxx; }` 就是一个作用域),变量名唯一
+ * 2.5.5.不同作用域的数据尽量不要随意互相访问
+ * |- 在小作用域中,能直接访问大作用域中的变量
+ * |- 在大作用域中,不能直接访问小作用域中的变量
+ * <pre>
+ *     public static void main(String[] args) {
+ *         String greeting = "Helloworld";
+ *         if (1 != 2) {
+ *             String hello = "Hello Java!";
+ *             System.out.println(hello);
+ *             // 在小作用域中,能直接访问大作用域中的变量
+ *             System.out.println(greeting);
+ *         }
+ *
+ *         // 在大作用域中,不能直接访问小作用域中的变量
+ *         // System.out.println(hello);
+ *     }
+ * </pre>
  *
  * @author photowey
  * @version 1.0.0
