@@ -105,6 +105,11 @@
         <repository>
             <id>dev</id>
             <name>local</name>
+            <!-- 配置环境变量: $env.MAVEN_REPO=${your.maven.local.repo.path} -->
+            <!-- 配置环境变量: $env:MAVEN_REPO=${your.maven.local.repo.path} -->
+            <!-- 例子: -->
+            <!-- $env.MAVEN_REPO=D:\maven\repo\repository -->
+            <!-- $env.MAVEN_REPO=/Users/photowey/software/maven/repo/repository -->
             <url>file:///${env.MAVEN_REPO}</url>
         </repository>
     </distributionManagement>
