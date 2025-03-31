@@ -2,7 +2,7 @@ SHELL := /bin/bash
 
 #
 # 为什么用 Makefile (Windows 系统需要下载 make.exe)
-# 1.方便处理挂平台脚本问题
+# 1.方便处理跨平台脚本问题
 # 1.1.Windows - *.cmd|*.bat|...
 # 1.2.Linux - *.sh...
 # 2.简化输入 -> 隐藏长命令
