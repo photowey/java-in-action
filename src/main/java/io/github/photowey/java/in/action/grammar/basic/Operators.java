@@ -47,6 +47,15 @@ public class Operators {
     }
 
     /**
+     * ----------------------------------------------------------------
+     * 1.算数运算符
+     * |- 加法(+)|减法(-)|乘法(*)|除法(/)|取模(取余数)(%) | ++|-- 也可以算是算术运算符
+     * 赋值运算符
+     * |- x = y
+     * 关系运算符(比较运算符)
+     * 逻辑运算符
+     * 三目(元)运算符
+     * ----------------------------------------------------------------
      * 运算符优先级
      * ---------------------------------------------------------------- 高
      * ()
@@ -86,7 +95,135 @@ public class Operators {
      * |- |— `x < (m * n)` -> x 小于 m 与 n 的积
      */
     private static void operator() {
+        // 1.算数运算符
+        arithmeticOperator();
+        // 2.赋值运算符
+        assignmentOperator();
+        // 3.关系运算符(比较运算符)
+        relationalOperator();
+        // 4.逻辑运算符
+        logicalOperator();
+        // 5.三目(元)运算符
+        ternaryOperator();
+    }
 
+    /**
+     * 三目(元)运算符
+     */
+    private static void ternaryOperator() {
+
+    }
+
+    /**
+     * 逻辑运算符
+     */
+    private static void logicalOperator() {
+
+    }
+
+    /**
+     * 关系运算符(比较运算符)
+     */
+    private static void relationalOperator() {
+
+    }
+
+    /**
+     * 赋值运算符
+     */
+    private static void assignmentOperator() {
+
+    }
+
+    /**
+     * 算术运算符
+     * |- 加法(+)|减法(-)|乘法(*)|除法(/)|取模(取余数)(%) | ++|-- 也可以算是算术运算符
+     */
+    private static void arithmeticOperator() {
+        // 1.加法(+)
+        int i = 5;
+        int j = 20;
+        int ij = i + j;
+        // +: 5 + 20 = 25
+        System.out.println("+: 5 + 20 = " + ij);
+
+        // 2.减法(-)
+        int ij_1 = i - j;
+        int ji = j - i;
+        // -: 5 - 20 = -15
+        System.out.println("-: 5 - 20 = " + ij_1);
+        // -: 20 - 5 = 15
+        System.out.println("-: 20 - 5 = " + ji);
+
+        // 3.乘法(*)
+        int ij_2 = i * j;
+        // *: 5 * 20 = 100
+        System.out.println("*: 5 * 20 = " + ij_2);
+
+        // 4.除法(/)
+        int ij_3 = i / j;
+        int ij_4 = j / i;
+        // /: 5 / 20 = 0
+        System.out.println("/: 5 / 20 = " + ij_3);
+        // /: 20 / 5 = 4
+        System.out.println("/: 20 / 5 = " + ij_4);
+
+        int m = 3;
+        int n = 2;
+        int mn_1 = m / n; // 1.5 ?
+        // /: 3 / 2 = 1
+        System.out.println("/: 3 / 2 = " + mn_1);
+
+        // 5.取模(取余数)(%)
+        int ij_5 = i % j;
+        int ij_6 = j % i;
+        int mn_2 = m % n;
+        int mn_3 = n % m;
+
+        // %: 5 % 20 = 5
+        System.out.println("%: 5 % 20 = " + ij_5);
+        // %: 20 % 5 = 0
+        System.out.println("%: 20 % 5 = " + ij_6);
+        // %: 3 % 2 = 1
+        System.out.println("%: 3 % 2 = " + mn_2);
+        // %: 2 % 3 = 2
+        System.out.println("%: 2 % 3 = " + mn_3);
+
+        // 6.自增(++x | x++)
+        // 6.1.++x
+        // 先将 x 的值加 1 后进行运算，再将加 1 后的值赋值给 x
+        int x = 5;
+        int pp_x = ++x;
+        // ++x: 当 x = 5 时, (++x) = 6, 自增后 x = 6
+        System.out.println("++x: 当 x = 5 时, (++x) = " + pp_x + ", 自增后 x = " + x);
+        /*
+        // 等同于如下表达式
+        int pp_x1 = (x + 1);
+        x = x;
+        */
+
+        // 6.2.x++
+        // 先取 x 的值进行运算，再加 1, 再将值赋值给 x
+        int x_pp = x++;
+        // x++: 当 x = 6 时, (x++) = 6, 自增后 x = 7
+        System.out.println("x++: 当 x = 6 时, (x++) = " + x_pp + ", 自增后 x = " + x);
+        /*
+        // 等同于如下表达式
+        int x_pp1 = x;
+        x = x + 1;
+        */
+
+        // 7.自减(--x | x--)
+        // 7.1.--x
+        // 先将 x 的值减 1 后进行运算，再将减 1 后的值赋值给 x
+        int mm_x = --x;
+        // --x: 当 x = 7 时, (--x) = 6, 自减后 x = 6
+        System.out.println("--x: 当 x = 7 时, (--x) = " + mm_x + ", 自减后 x = " + x);
+        // 7.2.x--
+        // 先取 x 的值进行运算，再减 1, 再将值赋值给 x
+        int x_mm = x--;
+        // --x: 当 x = 6 时, (x--) = 6, 自减后 x = 5
+        System.out.println("--x: 当 x = 6 时, (x--) = " + x_mm + ", 自减后 x = " + x);
     }
 
     /**
@@ -277,6 +414,8 @@ public class Operators {
 
         // 7.无符号右移
         unsignedRightShift();
+
+        separator();
     }
 
     /**
