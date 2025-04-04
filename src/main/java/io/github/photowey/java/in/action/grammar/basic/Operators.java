@@ -51,7 +51,9 @@ public class Operators {
      * 1.算数运算符
      * |- 加法(+)|减法(-)|乘法(*)|除法(/)|取模(取余数)(%) | ++|-- 也可以算是算术运算符
      * 赋值运算符
-     * |- x = y
+     * |- 基本赋值运算符 int x = y -> 将整数 y 的值赋值给变量 x
+     * |- 复合赋值运算符 int x += y -> 将变量 x 的值加 y, 并将加 y 后的值赋值给变量 x
+     * |- += | -= | *= | /= | %= | ...
      * 关系运算符(比较运算符)
      * 逻辑运算符
      * 三目(元)运算符
@@ -109,30 +111,137 @@ public class Operators {
 
     /**
      * 三目(元)运算符
+     * |- boolean 表达式 ? 表达式 1 : 表达式2
      */
     private static void ternaryOperator() {
+        int x = (5 > 20) ? 5 : 20;
+        int y = (5 < 20) ? 5 : 20;
 
+        // 三目运算: (5 > 20) ? 5 : 20 = 20
+        System.out.println("三目运算: (5 > 20) ? 5 : 20 = " + x);
+        // 三目运算: (5 < 20) ? 5 : 20 = 5
+        System.out.println("三目运算: (5 < 20) ? 5 : 20 = " + y);
+
+        separator();
     }
 
     /**
      * 逻辑运算符
+     * 作用: 连接多个 boolean 值
+     * 结果: boolean
+     * ----------------------------------------------------------------
+     * |- && 与(并且)
+     * |- |- 同真为真,有假为假
+     * |- || 或(或者)
+     * |- |- 有真为真,同假为假
+     * |- ! 非|取反
+     * |- 不是真就是假 - !false -> true; !true -> false
+     * |- ^ 异或
+     * |- 同真同假为假,异同为真
+     * |- true ^ true | false ^ false = false
+     * |- false ^ true | true ^ false = true
      */
     private static void logicalOperator() {
+        int x = 5;
+        int y = 20;
 
+        // 1.与
+        boolean xy_1 = /*真*/(x > 3) && /*真*/(y > 15);
+        // 与: 当 x = 5, y = 20, (x > 3) && (y > 15) = true
+        System.out.println("与: 当 x = 5, y = 20, (x > 3) && (y > 15) = " + xy_1);
+        boolean xy_2 = /*假*/(x > 8) && /*真*/(y > 15);
+        // 与: 当 x = 5, y = 20, (x > 8) && (y > 15) = false
+        System.out.println("与: 当 x = 5, y = 20, (x > 8) && (y > 15) = " + xy_2);
+
+        // 2.或
+        boolean xy_3 = /*假*/(x > 8) ||/*假*/(y < 15);
+        // 与: 当 x = 5, y = 20, (x > 8) || (y < 15) = false
+        System.out.println("与: 当 x = 5, y = 20, (x > 8) || (y < 15) = " + xy_3);
+        boolean xy_4 = /*假*/(x > 8) ||/*真*/(y > 15);
+        // 与: 当 x = 5, y = 20, (x > 8) || (y > 15) = true
+        System.out.println("与: 当 x = 5, y = 20, (x > 8) || (y > 15) = " + xy_4);
+
+        // 3.非
+        boolean xy_5 = !xy_3;
+        // 非: !false = true
+        System.out.println("非: !false = " + xy_5);
+        // 非: !true = false
+        boolean xy_6 = !xy_4;
+        System.out.println("非: !true = " + xy_6);
+
+        // 4.异或
+        // 异或: true ^ true = false
+        System.out.println("异或: true ^ true = " + (xy_5 ^ xy_5));
+        // 异或: false ^ false = false
+        System.out.println("异或: false ^ false = " + (xy_6 ^ xy_6));
+        // 异或: false ^ true = true
+        System.out.println("异或: false ^ true = " + (xy_6 ^ xy_5));
+        // 异或: true ^ false = true
+        System.out.println("异或: true ^ false = " + (xy_5 ^ xy_6));
+
+        separator();
     }
 
     /**
      * 关系运算符(比较运算符)
+     * 结果: boolean 类型 true|false
+     * 作用: 通常用于条件判断
+     * ----------------------------------------------------------------
+     * |- 等 ==
+     * |- 大于 >
+     * |- 大于等于 >=
+     * |- 小于 <
+     * |- 小于等于 <=
+     * |- 不等 !=
      */
     private static void relationalOperator() {
+        int i = 5;
+        int j = 10;
+        if (i == j) {
+            System.out.println("i == j");
+        } else if (i > j) {
+            System.out.println("i > j");
+        } else if (i >= j) {
+            System.out.println("i >= j");
+        } else if (i < j) {
+            System.out.println("i < j");
+        } else if (i <= j) {
+            System.out.println("i <= j");
+        } else if (i != j) {
+            System.out.println("i != j");
+        }
 
+        separator();
     }
 
     /**
      * 赋值运算符
      */
     private static void assignmentOperator() {
+        // 1.基本赋值运算符
+        int x = 5;
+        // 基本赋值运算符: 将 5 赋值给变量 x, x = 5
+        System.out.println("基本赋值运算符: 将 5 赋值给变量 x, x = " + x);
+        // 2.复合赋值运算符
+        x += 20;
+        // 复合赋值运算符: 当 x = 5 时, 复合运算 (x += 20) = 25
+        System.out.println("复合赋值运算符: 当 x = 5 时, 复合运算 (x += 20) = " + x);
+        /*
+        // 等同于如下表达式
+        x = x + 20;
+        */
 
+        // 注意: byte short 等遇到复合赋值运算符, JVM 会自动转型
+        byte b = 5;
+        b += 1;
+        // 复合赋值运算符: 当 byte: b = 5 时, 复合运算 (b += 1) = 6
+        System.out.println("复合赋值运算符: 当 byte: b = 5 时, 复合运算 (b += 1) = " + b);
+        /*
+        // 等同于如下表达式
+        b = (byte) (b + 1);
+        */
+
+        separator();
     }
 
     /**
@@ -219,11 +328,24 @@ public class Operators {
         int mm_x = --x;
         // --x: 当 x = 7 时, (--x) = 6, 自减后 x = 6
         System.out.println("--x: 当 x = 7 时, (--x) = " + mm_x + ", 自减后 x = " + x);
+        /*
+        // 等同于如下表达式
+        int mm_x1 = (x - 1);
+        x = x;
+        */
+
         // 7.2.x--
         // 先取 x 的值进行运算，再减 1, 再将值赋值给 x
         int x_mm = x--;
         // --x: 当 x = 6 时, (x--) = 6, 自减后 x = 5
         System.out.println("--x: 当 x = 6 时, (x--) = " + x_mm + ", 自减后 x = " + x);
+        /*
+        // 等同于如下表达式
+        int x_mm1 = x;
+        x = x - 1;
+        */
+
+        separator();
     }
 
     /**
